@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 10px 50px;
+        }
+
+        
+        .formdesign {
+            font-size: 20px;
+        }
+
+        .formdesign input {
+            width: 50%;
+            padding: 12px 20px;
+            border: 1px solid blue;
+            margin: 14px;
+            border-radius: 4px;
+            font-size: 15px;
+        }
+
+        .formerror {
+            color: red;
+        }
+        .but{
+            border-radius: 9px;
+            width: 100px;
+            height: 50px;
+            font-size: 25px;
+            margin: 22px 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Fill The Form</h1>
+    <form action="/" name="myForm" method="post">
+        <div class="formdesign" id="name">
+            Name: <input type="text" name="fname"><span class="formerror"><b></b></span>
+        </div>
+        <div class="formdesign" id="email">
+            Email: <input type="email" name="femail"><span class="formerror"><b></b></span>
+        </div>
+        <div class="formdesign" id="phone">
+            Phone: <input type="phone" name="fphone"><span class="formerror"><b></b></span>
+        </div>
+        <input type="submit" class="but" value="submit">
+    </form>
+    <script src="./form.js"></script>
+</body>
+
+</html>
