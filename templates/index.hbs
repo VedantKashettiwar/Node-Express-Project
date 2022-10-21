@@ -42,19 +42,19 @@
     <h1>Fill The Form</h1>
     <form action="/" name="myForm" method="post">
         <div class="formdesign" id="name">
-            Name: <input type="text" name="fname"><span class="formerror"><b></b></span>
+            Name: <input type="text" name="fname" required><span class="formerror"><b></b></span>
         </div>
         <div class="formdesign" id="email">
-            Email: <input type="email" name="femail"><span class="formerror"><b></b></span>
+            Email: <input type="email" name="femail" required><span class="formerror"><b></b></span>
         </div>
         <div class="formdesign" id="phone">
-            Phone: <input type="phone" name="fphone"><span class="formerror"><b></b></span>
+            Phone: <input type="phone" name="fphone" required><span class="formerror"><b></b></span>
         </div>
-        <input type="submit" class="but" value="submit">
+        <button class="but" value="submit">Submit</button>
+        {{!-- <input type="submit" class="but" value="submit"> --}}
     </form>
-    <a href="http://localhost:8000/view"> <button> Click Here To See Details</button>
-    </a>
-    <script src="./form.js"></script>
+    <a href="http://localhost:8000/view"> <button class="but" value="submit">Details</button>
+     </a>
 </body>
 
 </html>

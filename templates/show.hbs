@@ -6,18 +6,14 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Details</h1>
+    <h1 >LIST <a href="http://localhost:8000/">
+        <button style="height: 30px;width:60px">Form</button>
+      </a></h1>
+      <br>
     {{#each parseObject}}
-      <p>{{this.fname}}</p><button onclick="data('{{this.id}}')">show</button>
+    <form action="/detail" method="POST">
+      <p>{{this.fname}}</p><button name="id" value="{{this.id}}">show</button>
+    </form>
     {{/each}}
-    <center><a href="http://localhost:8000/">
-        <button style="">Entry</button>
-      </a></center>
-    <script>
-      function data(id){
-        console.log(id)
-      }
-      
-    </script>
   </body>
 </html>

@@ -25,7 +25,6 @@ app.get('/',(req,res)=>{
 })
 
 app.post('/',(req,res)=>{
-    res.render('msg')
     let dataObject = {
         'id':rID(),
         'fname':req.body.fname,
@@ -34,9 +33,16 @@ app.post('/',(req,res)=>{
     }
     const myJSON = JSON.stringify(dataObject);
     let prev = fs.readFileSync('api.json' ,'utf-8')
-    prev = prev.slice(0, -1)
-    prev =prev+','+myJSON+']'
-    fs.writeFileSync('api.json',prev);
+    if(prev == ''){
+        prev ='['+myJSON+']'
+        fs.writeFileSync('api.json',prev);
+    }else{
+        prev = prev.slice(0, -1)
+        prev =prev+','+myJSON+']'
+        fs.writeFileSync('api.json',prev);
+    }
+
+    res.render('msg')
 })
 
 app.get('/view',(req,res)=>{
@@ -44,6 +50,14 @@ app.get('/view',(req,res)=>{
     const parseObject = JSON.parse(prev);
     res.render('show',{parseObject}) 
 })
+app.post('/detail',(req,res)=>{
+    let detailObject = req.body.id
+    let prev = fs.readFileSync('api.json' ,'utf-8')
+    prev = JSON.parse(prev);
+    let found = prev.find(a => a.id == detailObject)
+    res.render('detail',{found}) 
+})
+
 
 app.get('*',(req,res)=>{
     res.render('error',{'error':'404, Page not found'})
